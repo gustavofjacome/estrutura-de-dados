@@ -18,13 +18,19 @@ public class Pilha {
     }
 
     //adiciona elemento em cima
-    public void push(String elemento){
+    public void push(String elemento) throws Exception {
+        if (isFull()){
+            throw new Exception(new PilhaCheiaException("Pilha Cheia"));
+        }
         this.pilha[++topo] = elemento;
         size++;
     }
 
     //retorna o de cima e remove
-    public String pop(){
+    public String pop() throws Exception {
+        if (isEmpty()){
+            throw new Exception(new PilhaVaziaException("Pilha Vazia"));
+        }
         String isRemove = this.pilha[topo];
         this.pilha[topo] = " ";
         size--;
@@ -33,7 +39,10 @@ public class Pilha {
 
 
     //retorna o de cima sem remover
-    public String top(){
+    public String top() throws Exception {
+        if (isEmpty()){
+            throw new Exception(new PilhaVaziaException("Pilha Vazia"));
+        }
         return this.pilha[topo];
     }
 
