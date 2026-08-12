@@ -1,11 +1,11 @@
-public class Pilha {
+public class Pilha<T> {
     private int topo;
-    private String[] pilha;
+    private T[] pilha;
     private int size;
 
     public Pilha(int capacidade) {
         this.topo = -1;
-        this.pilha = new String[capacidade];
+        this.pilha = (T[]) new Object[capacidade];
         this.size = 0;
     }
 
@@ -18,7 +18,7 @@ public class Pilha {
     }
 
     //adiciona elemento em cima
-    public void push(String elemento) throws Exception {
+    public void push(T elemento) throws Exception {
         if (isFull()){
             throw new Exception(new PilhaCheiaException("Pilha Cheia"));
         }
@@ -27,25 +27,25 @@ public class Pilha {
     }
 
     //retorna o de cima e remove
-    public String pop() throws Exception {
+    public T pop() throws Exception {
         if (isEmpty()){
             throw new Exception(new PilhaVaziaException("Pilha Vazia"));
         }
-        String isRemove = this.pilha[topo];
-        this.pilha[topo] = " ";
+        T isRemove = this.pilha[topo];
+        this.pilha[topo] = null;
+        topo--;
         size--;
         return isRemove;
     }
 
 
     //retorna o de cima sem remover
-    public String top() throws Exception {
+    public T top() throws Exception {
         if (isEmpty()){
             throw new Exception(new PilhaVaziaException("Pilha Vazia"));
         }
         return this.pilha[topo];
     }
-
 
     public int size(){
         return size;
