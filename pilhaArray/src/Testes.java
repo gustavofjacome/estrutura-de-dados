@@ -17,7 +17,7 @@ public class Testes {
         System.out.println(prato.isFull());
 
 
-        prato.pop();
+        prato.pop(); // como agora tem exceção vai dar erro de cara
         prato.pop();
         prato.pop();
         prato.pop();
