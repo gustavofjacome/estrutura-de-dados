@@ -1,13 +1,10 @@
 public class Testes {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        Pilha<String> prato = new Pilha<>(5);
+        PilhaArray<String> prato = new PilhaArray<>(5, 2);
 
         System.out.println(prato.isEmpty());
-        System.out.println(prato.isFull());
-
-        // =================
 
         prato.push("B");
         prato.push("R");
@@ -15,20 +12,14 @@ public class Testes {
         prato.push("S");
         prato.push("A");
 
-        System.out.println(prato.isEmpty());
         System.out.println(prato.isFull());
 
-        // =================
-
         System.out.println(prato.pop());
         System.out.println(prato.pop());
         System.out.println(prato.pop());
         System.out.println(prato.pop());
         System.out.println(prato.pop());
-
-        // =================
 
         System.out.println(prato.isEmpty());
-        System.out.println(prato.isFull());
     }
 }
