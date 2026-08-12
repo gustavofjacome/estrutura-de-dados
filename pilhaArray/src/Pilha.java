@@ -6,15 +6,27 @@ public class Pilha {
         this.topo = -1;
         this.pilha = new String[capacidade];
     }
-    //TODO: push(), pop, peek, top , is empty, is full, size;
 
     public boolean isEmpty(){
         return this.topo == -1;
     }
 
+    public boolean isFull(){
+        return this.topo+1 == pilha.length;
+    }
 
     public void push(String elemento){
         this.pilha[++topo] = elemento;
+    }
+
+    public String pop(){
+        String isRemove = this.pilha[topo];
+        this.pilha[topo] = " ";
+        return isRemove;
+    }
+
+    public String top(){
+        return this.pilha[topo];
     }
 
 }
