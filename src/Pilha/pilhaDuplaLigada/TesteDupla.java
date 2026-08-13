@@ -1,12 +1,12 @@
-package src.pilhaListaLigada;
+package src.Pilha.pilhaDuplaLigada;
 
-import src.Pilha;
+import src.Pilha.Pilha;
 
-public class TesteLigada {
+public class TesteDupla {
 
     public static void main(String[] args) throws Exception {
 
-        Pilha pilha = new PilhaSimpleLinkedList();
+        Pilha pilha = new PilhaDoubleLinkedList();
 
         System.out.println("Vazia: " + pilha.isEmpty());
 

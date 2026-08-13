@@ -1,7 +1,7 @@
-package src.pilhaArray;
+package src.Pilha.pilhaArray;
 
-import src.Pilha;
-import src.Exception.PilhaVaziaException;
+import src.Pilha.Pilha;
+import src.Pilha.Exception.PilhaVaziaException;
 
 public class PilhaArray<T> implements Pilha {
     private int capacity;

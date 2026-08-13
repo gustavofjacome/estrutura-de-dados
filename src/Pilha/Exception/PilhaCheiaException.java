@@ -1,4 +1,4 @@
-package src.Exception;
+package src.Pilha.Exception;
 
 public class PilhaCheiaException extends RuntimeException {
     public PilhaCheiaException(String message) {

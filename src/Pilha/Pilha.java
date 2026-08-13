@@ -1,6 +1,6 @@
-package src;
+package src.Pilha;
 
-import src.Exception.PilhaVaziaException;
+import src.Pilha.Exception.PilhaVaziaException;
 
 public interface Pilha {
     public int size();

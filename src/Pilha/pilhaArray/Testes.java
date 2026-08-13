@@ -1,4 +1,4 @@
-package src.pilhaArray;
+package src.Pilha.pilhaArray;
 
 public class Testes {
 

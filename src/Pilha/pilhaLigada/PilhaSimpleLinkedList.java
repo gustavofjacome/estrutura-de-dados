@@ -1,7 +1,7 @@
-package src.pilhaListaLigada;
+package src.Pilha.pilhaLigada;
 
-import src.Exception.PilhaVaziaException;
-import src.Pilha;
+import src.Pilha.Exception.PilhaVaziaException;
+import src.Pilha.Pilha;
 
 public class PilhaSimpleLinkedList implements Pilha {
 
