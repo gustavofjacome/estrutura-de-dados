@@ -1,0 +1,8 @@
+# Compilacao
+out/
+
+# IntelliJ
+*.iml
+
+# SO / editores
+.DS_Store

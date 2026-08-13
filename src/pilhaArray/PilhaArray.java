@@ -1,4 +1,7 @@
-import Exception.*;
+package src.pilhaArray;
+
+import src.Pilha;
+import src.Exception.PilhaVaziaException;
 
 public class PilhaArray<T> implements Pilha {
     private int capacity;
@@ -20,7 +23,6 @@ public class PilhaArray<T> implements Pilha {
         return this.head == -1; // -1 é o valor padrao do construtor la em cima se ele ta -1 é pq nao foi alterado, logo ta vazio
     }
 
-    @Override
     public boolean isFull(){
         return this.head+1 == a.length;
     }
