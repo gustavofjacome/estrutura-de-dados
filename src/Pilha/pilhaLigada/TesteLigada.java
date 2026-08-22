@@ -8,8 +8,6 @@ public class TesteLigada {
 
         Pilha pilha = new PilhaSimpleLinkedList();
 
-        System.out.println("Vazia: " + pilha.isEmpty());
-
         pilha.push("A");
         pilha.push("B");
         pilha.push("C");
