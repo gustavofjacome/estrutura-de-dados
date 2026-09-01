@@ -1,8 +1,6 @@
 package src.Fila.FilaLigada;
 
-import src.Pilha.Exception.FilaVaziaException;
-import src.Pilha.Pilha;
-import src.Pilha.pilhaLigada.PilhaSimpleLinkedList;
+
 
 public class FilaSimpleLinkedList {
 
@@ -30,57 +28,57 @@ public class FilaSimpleLinkedList {
         public void setNext(Node next) {
             this.next = next;
         }
-
     }
-        private Node head;
-        private Node tail;
-        private int size;
 
-     public FilaSimpleLinkedList(){
-         this.head = null;
-         this.tail = null;
-         this.size = 0;
-     }
+    private Node head;
+    private Node tail;
+    private int size;
 
-     public boolean isEmpty(){
-         return this.size == 0;
-     }
+    public FilaSimpleLinkedList() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
 
-     public void push(Object objetoRecebido){
-         if (isEmpty()) {
-             this.head.setData(objetoRecebido);
-         }
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
 
-         Node novoObjeto = new Node();
-         novoObjeto.setData(objetoRecebido);
-         this.tail.next = novoObjeto;
+    public void push(Object objetoRecebido) {
+        Node novoNode = new Node();
+        novoNode.setData(objetoRecebido);
 
-         this.tail = novoObjeto;
-         this.size++;
+        if (isEmpty()) {
+            this.head = novoNode;
+            this.tail = novoNode;
+        } else {
+            this.tail.setNext(novoNode);
+            this.tail = novoNode;
         }
+        this.size++;
+    }
 
-     public Object pop() throws FilaVaziaException {
-         if (isEmpty()) {
-             throw new FilaVaziaException("Fila Vazia");
-         }
+    public Object pop() throws FilaVaziaException {
+        if (isEmpty()) {
+            throw new FilaVaziaException("Fila Vazia");
+        }
+        Object toRemove = this.head.getData();
+        this.head = this.head.getNext();
+        if (this.head == null) {
+            this.tail = null;
+        }
+        size--;
+        return toRemove;
+    }
 
-         Object toRemove = this.head.getData();
-         this.head = this.head.getNext();
-         size--;
-         return toRemove;
-     }
+    public Object top() throws FilaVaziaException {
+        if (isEmpty()) {
+            throw new FilaVaziaException("Fila Vazia");
+        }
+        return this.head.getData();
+    }
 
-     public Object top() throws  FilaVaziaException {
-         if (isEmpty()) {
-             throw new FilaVaziaException("Fila Vazia");
-         }
-         return this.head.getData();
-     }
-
-     public int size(){
-         return this.size;
-     }
-
-
-
+    public int size() {
+        return this.size;
+    }
 }
