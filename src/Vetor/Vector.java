@@ -8,35 +8,27 @@ public class Vector {
     public Object[] getVetor() {
         return vetor;
     }
-
     public void setVetor(Object[] vetor) {
         this.vetor = vetor;
     }
-
     public int getTamanho() {
         return tamanho;
     }
-
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
-
     public int getCapacidade() {
         return capacidade;
     }
-
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
-
     public Vector() {
         this.capacidade = 8;
     }
-
     public Vector(int capacidade) {
         this.capacidade = capacidade;
     }
-
     int size(){
         return tamanho;
     }
@@ -53,15 +45,34 @@ public class Vector {
         }
     }
 
-    Object insertAtRank(){
+    void insertAtRank(int r, Object objeto){
+        for (int i = this.tamanho-1; i >= r; i--) {
+            vetor[i+1] = vetor[i];
+        }
+        vetor[r] = objeto;
+    }
 
+    Object replaceAtRank(int r, Object objeto){
+        Object elementoSubstituido;
+        elementoSubstituido = vetor[r];
+        vetor[r] = objeto;
+        return elementoSubstituido;
+    }
+
+    Object removeAtRank(int r, Object objeto){
+        Object itemRemovido;
+        itemRemovido = vetor[r];
+        for (int i = r; i < vetor.length; i++) {
+            vetor[r] = vetor[r+1];
+        }
+        return itemRemovido;
     }
 
     boolean aumentarVetor(){
         int novaCapacidade = capacidade*2;
         Object[] novoVetor = new Object[novaCapacidade];
 
-        copiarVetor(vetor, vetor.length, novoVetor);
+        copiarVetor(novoVetor);
 
         vetor = novoVetor;
         capacidade = novaCapacidade;
@@ -70,29 +81,25 @@ public class Vector {
     }
 
     boolean diminuirVetor(){
-
-        if (vetor[capacidade/2] == null){
-            int capacidadeReduzida = capacidade/2;
+        if (tamanho < capacidade/2){ 
+            int capacidadeReduzida = capacidade/2; // pega a capacidade atual e divide pela metade
             Object[] novoVetor = new Object[capacidadeReduzida];
 
-            copiarVetor(vetor, vetor.length, novoVetor);
-
+            copiarVetor(novoVetor); //copia do antigo para o novo
+            
+            // att valores
             vetor = novoVetor;
             capacidade = capacidadeReduzida;
 
             return true;
-
         } else {
             return false;
         }
-
-
-
     }
 
-    void copiarVetor(Object[] vetorOrigem, int vetorOrigemSize, Object[] vetorDestino){
-        for (int i = 0; i < vetorOrigemSize; i++) {
-            vetorOrigem[i] = vetorDestino[i];
+    void copiarVetor(Object[] novoVetor){
+        for (int i = 0; i < tamanho; i++) {
+            novoVetor[i] = vetor[i];
         }
     }
 
