@@ -1,6 +1,7 @@
 package src.Fila.FilaLigada;
 
 
+import src.Pilha.Exception.FilaVaziaException;
 
 public class FilaSimpleLinkedList {
 
